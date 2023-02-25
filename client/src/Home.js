@@ -14,8 +14,8 @@ const Home = () => {
     const handleFormSubmit = (e) => {
         e.preventDefault()
         console.log({
-            fullname,
-            currentPosistion,
+            fullName,
+            currentPosition,
             currentLength,
             currentTechnologies,
             headshot
@@ -27,5 +27,26 @@ const Home = () => {
     if (Loading) {
         return <Loading />
     }
-    return
+    return (
+        <div className='app'>
+            <h1>Resume Builder</h1>
+            <p>Generate a resume with the help of ChatGPT in seconds</p>
+            <form
+                onSubmit={handleFormSubmit}
+                method='POST'
+                encType='multipart/form-data'
+            >
+                    <label htmlFor="fullName">Enter your full name</label>
+                    <input 
+                        type="text" 
+                        required
+                        name='fullName'
+                        id='fullName'
+                        value={fullName}
+                        onChange={(e) => setFullName(e.target.value)}
+                    />
+
+            </form>
+        </div>
+    )
 }
