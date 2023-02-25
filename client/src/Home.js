@@ -79,9 +79,21 @@ const Home = () => {
                                 onChange={(e) => setCurrentTechnologies(e.target.value)}
                             />
                         </div>
-                        
+
                     </div>
+                    <label htmlFor="photo">Upload your headshot</label>
+                    <input 
+                        type="file" 
+                        name='photo'
+                        required
+                        id='photo'
+                        accept='image/x-png,image/jpeg'
+                        onChange={(e) => setHeadshot(e.target.files[0])}
+                    />
+                    <button>CREATE RESUME</button>
             </form>
         </div>
     )
 }
+
+export default Home
