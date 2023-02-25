@@ -45,7 +45,42 @@ const Home = () => {
                         value={fullName}
                         onChange={(e) => setFullName(e.target.value)}
                     />
-
+                    <div className='nestedContainer'>
+                        <div>
+                            <label htmlFor="currentPosition">Current Position</label>
+                            <input 
+                                type="text" 
+                                required
+                                name='currentPosition'
+                                id='currentPosition'
+                                value={currentPosition}
+                                onChange={(e) => setCurrentPosition(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="currentLength">How long? (years)</label>
+                            <input 
+                                type="text" 
+                                required
+                                name='currentLength'
+                                id='currentLength'
+                                value={currentLength}
+                                onChange={(e) => setCurrentLength(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="currentTechnologies">Technologies Used</label>
+                            <input 
+                                type="text" 
+                                required
+                                name='currentTechnologies'
+                                id='currentTechnologies'
+                                value={currentTechnologies}
+                                onChange={(e) => setCurrentTechnologies(e.target.value)}
+                            />
+                        </div>
+                        
+                    </div>
             </form>
         </div>
     )
