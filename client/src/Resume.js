@@ -1,0 +1,1 @@
+// displays the AI-generated resume to the user
