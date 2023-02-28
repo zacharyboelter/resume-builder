@@ -10,6 +10,7 @@ const Home = () => {
     const [currentTechnologies, setCurrentTechnologies] = useState('')
     const [headshot, setHeadshot] = useState(null)
     const [loading, setLoading] = useState(false)
+    const [companyInfo, setCompanyInfo] = useState([{ name: "", position: ""}])
 
     const handleFormSubmit = (e) => {
         e.preventDefault()
@@ -24,7 +25,7 @@ const Home = () => {
     }
 
     // 👇🏻 renders the Loading component when you submit the form
-    if (Loading) {
+    if (loading) {
         return <Loading />
     }
     return (
