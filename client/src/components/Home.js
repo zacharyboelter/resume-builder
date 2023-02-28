@@ -39,7 +39,7 @@ const Home = () => {
     const handleUpdateCompany = (e, index) => {
         const { name, value } = e.target
         const list = [...companyInfo]
-        list[index, name] = value
+        list[index][name] = value
         setCompanyInfo(list)
     }
 
@@ -65,14 +65,14 @@ const Home = () => {
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                 />
-                <div className='nestedContainer#'>
+                <div className='nestedContainer'>
                     <div>
                         <label htmlFor="currentPosition">Current Position</label>
                         <input
                             type="text"
                             required
                             name='currentPosition'
-                            id='currentPosition'
+                            id='currentInput'
                             value={currentPosition}
                             onChange={(e) => setCurrentPosition(e.target.value)}
                         />
@@ -83,7 +83,7 @@ const Home = () => {
                             type="text"
                             required
                             name='currentLength'
-                            id='currentLength'
+                            id='currentInput'
                             value={currentLength}
                             onChange={(e) => setCurrentLength(e.target.value)}
                         />
@@ -94,7 +94,7 @@ const Home = () => {
                             type="text"
                             required
                             name='currentTechnologies'
-                            id='currentTechnologies'
+                            id='currentInput'
                             value={currentTechnologies}
                             onChange={(e) => setCurrentTechnologies(e.target.value)}
                         />
