@@ -10,7 +10,7 @@ const Home = () => {
     const [currentTechnologies, setCurrentTechnologies] = useState('')
     const [headshot, setHeadshot] = useState(null)
     const [loading, setLoading] = useState(false)
-    const [companyInfo, setCompanyInfo] = useState([{ name: "", position: ""}])
+    const [companyInfo, setCompanyInfo] = useState([{ name: "", position: "" }])
 
     const handleFormSubmit = (e) => {
         e.preventDefault()
@@ -25,7 +25,7 @@ const Home = () => {
     }
 
     const handleCompanyInfo = (e) => {
-        setCompanyInfo([...companyInfo, {name: "", position: ""}])
+        setCompanyInfo([...companyInfo, { name: "", position: "" }])
     }
 
     //removes selected item from the list
@@ -37,7 +37,7 @@ const Home = () => {
 
     //updates selected item from the list
     const handleUpdateCompany = (e, index) => {
-        const {name, value} = e.target
+        const { name, value } = e.target
         const list = [...companyInfo]
         list[index, name] = value
         setCompanyInfo(list)
@@ -110,6 +110,22 @@ const Home = () => {
                     accept='image/x-png,image/jpeg'
                     onChange={(e) => setHeadshot(e.target.files[0])}
                 />
+
+                <h3>Companies you have worked at</h3>
+
+                {companyInfo.map((company, index) => (
+                    <div className='nestedContainer' key={index}>
+                        <div className='companies'>
+                            <label htmlFor="name">Company Name</label>
+                            <input
+                                type="text"
+                                name='name'
+                                required
+                                onChange={(e) => handleUpdateCompany(e, index)}
+                            />
+                        </div>
+                    </div>
+                ))}
                 <button>CREATE RESUME</button>
             </form>
         </div>
