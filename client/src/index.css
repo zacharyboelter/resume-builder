@@ -99,3 +99,28 @@ button {
     align-items: center;
     justify-content: space-between;
 }
+
+.resumeTitle {
+    opacity: 0.6;
+}
+
+.header-title {
+    margin-bottom: 15px;
+}
+
+.resumeImage {
+    width: 80%;
+    margin: 0 auto;
+    padding: 30px;
+    min-height: 80vh;
+    border: 1 solid #e0e0ea;
+}
+
+.resumeBodyTitle {
+    margin-bottom: 5px;
+}
+
+.resumeBodyContent {
+    text-align: justify;
+    margin-bottom: 30px;
+}
