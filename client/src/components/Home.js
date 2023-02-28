@@ -28,6 +28,21 @@ const Home = () => {
         setCompanyInfo([...companyInfo, {name: "", position: ""}])
     }
 
+    //removes selected item from the list
+    const handleRemoveCompany = (index) => {
+        const list = [...companyInfo]
+        list.splice(index, 1)
+        setCompanyInfo(list)
+    }
+
+    //updates selected item from the list
+    const handleUpdateCompany = (e, index) => {
+        const {name, value} = e.target
+        const list = [...companyInfo]
+        list[index, name] = value
+        setCompanyInfo(list)
+    }
+
     // 👇🏻 renders the Loading component when you submit the form
     if (loading) {
         return <Loading />
