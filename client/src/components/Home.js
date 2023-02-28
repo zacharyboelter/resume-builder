@@ -24,7 +24,7 @@ const Home = () => {
         setLoading(true)
     }
 
-    const handleCompanyInfo = (e) => {
+    const handleAddCompany = (e) => {
         setCompanyInfo([...companyInfo, { name: "", position: "" }])
     }
 
@@ -132,6 +132,18 @@ const Home = () => {
                                 required
                                 onChange={(e) => handleUpdateCompany(e, index)}
                             />
+                        </div>
+                        <div className='btn_group'>
+                            {companyInfo.length - 1 === index && companyInfo.length < 4 && (
+                                <button id='addBtn' onClick={handleAddCompany}>
+                                    Add
+                                </button>
+                            )}
+                            {companyInfo.length > 1 && (
+                                <button id='deleteBtn' onClick={handleRemoveCompany}>
+                                    Del
+                                </button>
+                            )}
                         </div>
                     </div>
                 ))}
