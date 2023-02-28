@@ -72,7 +72,7 @@ const Home = () => {
                             type="text"
                             required
                             name='currentPosition'
-                            id='currentInput'
+                            className='currentInput'
                             value={currentPosition}
                             onChange={(e) => setCurrentPosition(e.target.value)}
                         />
@@ -83,7 +83,7 @@ const Home = () => {
                             type="text"
                             required
                             name='currentLength'
-                            id='currentInput'
+                            className='currentInput'
                             value={currentLength}
                             onChange={(e) => setCurrentLength(e.target.value)}
                         />
@@ -94,7 +94,7 @@ const Home = () => {
                             type="text"
                             required
                             name='currentTechnologies'
-                            id='currentInput'
+                            className='currentInput'
                             value={currentTechnologies}
                             onChange={(e) => setCurrentTechnologies(e.target.value)}
                         />
