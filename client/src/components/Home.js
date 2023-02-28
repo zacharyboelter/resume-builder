@@ -65,7 +65,7 @@ const Home = () => {
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                 />
-                <div className='nestedContainer'>
+                <div className='nestedContainer#'>
                     <div>
                         <label htmlFor="currentPosition">Current Position</label>
                         <input
