@@ -113,6 +113,8 @@ const Home = () => {
 
                 <h3>Companies you have worked at</h3>
 
+                {/* The code snippet maps through the elements within the companyInfo array and displays them on the webpage. The handleUpdateCompany function runs when a user updates the input field, then handleRemoveCompany removes an item from the list of elements, and the handleAddCompany adds a new input field. */}
+
                 {companyInfo.map((company, index) => (
                     <div className='nestedContainer' key={index}>
                         <div className='companies'>
