@@ -21,3 +21,8 @@ const Resume = ({ result }) => {
 }
 
 export default Resume
+
+
+
+// FOR TOMORROW !!!!!
+// set up Multer on the node server to submit images via forms.
