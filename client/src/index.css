@@ -39,3 +39,16 @@ button {
     font-weight: bold;
     border-radius: 3px;
 }
+
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.app > p {
+    margin-bottom: 30px;
+}
