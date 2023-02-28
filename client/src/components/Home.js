@@ -124,6 +124,15 @@ const Home = () => {
                                 onChange={(e) => handleUpdateCompany(e, index)}
                             />
                         </div>
+                        <div className='companies'>
+                            <label htmlFor="position">Position Title</label>
+                            <input
+                                type="text"
+                                name='position'
+                                required
+                                onChange={(e) => handleUpdateCompany(e, index)}
+                            />
+                        </div>
                     </div>
                 ))}
                 <button>CREATE RESUME</button>
