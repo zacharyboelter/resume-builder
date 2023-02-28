@@ -16,3 +16,10 @@ form {
     flex-direction: column;
 }
 
+input {
+    margin-bottom: 15px;
+    padding: 10px 20px;
+    border-radius: 3px;
+    outline: none;
+    border: 1px solid #ddd;
+}
