@@ -24,6 +24,10 @@ const Home = () => {
         setLoading(true)
     }
 
+    const handleCompanyInfo = (e) => {
+        setCompanyInfo([...companyInfo, {name: "", position: ""}])
+    }
+
     // 👇🏻 renders the Loading component when you submit the form
     if (loading) {
         return <Loading />
