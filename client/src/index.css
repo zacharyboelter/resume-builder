@@ -52,3 +52,16 @@ button {
 .app > p {
     margin-bottom: 30px;
 }
+
+.nestedContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;   
+}
+
+.companies {
+    display: flex;
+    flex-direction: column;
+    width: 39%;
+}
