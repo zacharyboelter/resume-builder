@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Loading from './Loading'
+import axios from 'axios'
 
 const Home = () => {
     const [fullName, setFullName] = useState("")
@@ -14,6 +15,18 @@ const Home = () => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault()
+
+        const formData = new FormData()
+
+        formData.append("headshotImage", headshot, headshot.name)
+        formData.append("fullName", fullName)
+        formData.append("currentPosition", currentPosition)
+        formData.append("currentLength", currentLength)
+        formData.append("currentTechnologies", currentTechnologies)
+        formData.append("workHistory", JSON.stringify(companyInfo))
+        
+        
+
         console.log({
             fullName,
             currentPosition,
