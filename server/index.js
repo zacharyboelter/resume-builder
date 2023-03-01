@@ -12,6 +12,19 @@ app.use(express.urlencoded({ extended: true}))
 app.use(express.json())
 app.use(cors())
 
+app.use("/uploads", express.static("uploads"))
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, "uploads")
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + path.extname(file.originalname))
+    }
+})
+
+
+
 app.get('/api', (req, res) => {
     res.json({
         message: 'Hello world',
