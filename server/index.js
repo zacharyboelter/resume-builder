@@ -34,11 +34,25 @@ const upload = multer({
 })
 
 
-app.get('/api', (req, res) => {
+// upload.single("headshotImage") function adds the image uploaded via the form to the uploads folder
+app.post("resume/create", upload.single("headshotImage"), async (req, res) => {
+    const {
+        fullName,
+        currentPosition,
+        currentLength,
+        currentTechnologies,
+        workHistory
+    } = req.body
+
+    console.log(req.body)
+
     res.json({
-        message: 'Hello world',
+        message: "Request Sucessful!",
+        data: {},
     })
 })
+
+
 
 app.listen(PORT, () => {
     console.log(`Server listening on ${PORT}`)
