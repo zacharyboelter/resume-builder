@@ -6,6 +6,7 @@ const app = express()
 const PORT = 4000
 const multer = require('multer')
 const path = require('path')
+const { Configuration, OpenAIApi} = require('openai')
 
 
 app.use(express.urlencoded({ extended: true}))
@@ -31,6 +32,12 @@ const storage = multer.diskStorage({
 const upload = multer({
     storage: storage,
     limits: {fileSize: 1024 * 1024 * 5}
+})
+
+
+// 
+const configuration = new Configuration({
+    apiKey: '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'
 })
 
 
