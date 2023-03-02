@@ -78,6 +78,15 @@ app.post("resume/create", upload.single("headshotImage"), async (req, res) => {
         currentTechnologies,
         workHistory: workArray,
     }
+
+    //loops through workArray items and convert them into a string
+    const remainderText = () =>{
+        let stringText = ''
+        for (let i = 0; i < workArray.length; i++) {
+            stringText += `${workArray[i].name} as a ${workArray[i].position}`
+        }
+        return stringText
+    }
 })
 
 
