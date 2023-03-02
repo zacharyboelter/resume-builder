@@ -1,12 +1,12 @@
 
-
+const { Configuration, OpenAIApi} = require('openai')
 const express = require('express')
 const cors = require('cors')
 const app = express()
 const PORT = 4000
 const multer = require('multer')
 const path = require('path')
-const { Configuration, OpenAIApi} = require('openai')
+
 
 
 app.use(express.urlencoded({ extended: true}))
@@ -28,17 +28,33 @@ const storage = multer.diskStorage({
 })
 
 // upload variable passes the configuration to Multer and set a size limit of 5MB for the images
-
 const upload = multer({
     storage: storage,
     limits: {fileSize: 1024 * 1024 * 5}
 })
 
 
-// 
 const configuration = new Configuration({
     apiKey: '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'
 })
+
+
+const openai = new OpenAIApi(configuration)
+
+
+// code snippet above uses the text-davinci-003 model to generate an appropriate answer to the prompt. The other key values helps us generate the specific type of response we need.
+const GPTFunction = async (text) => {
+    const response = await openai.createCompletion({
+        model: 'text-davinci-003',
+        prompt: text,
+        temperature: 0.6,
+        max_tokens: 250,
+        top_p: 1,
+        frequency_penalty: 1,
+        presence_penalty: 1,
+    })
+    return response.data.choice[0].text
+}
 
 
 // upload.single("headshotImage") function adds the image uploaded via the form to the uploads folder
@@ -48,15 +64,10 @@ app.post("resume/create", upload.single("headshotImage"), async (req, res) => {
         currentPosition,
         currentLength,
         currentTechnologies,
-        workHistory
+        workHistory, //JSON format
     } = req.body
 
-    console.log(req.body)
-
-    res.json({
-        message: "Request Sucessful!",
-        data: {},
-    })
+    
 })
 
 
