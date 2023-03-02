@@ -5,7 +5,7 @@ import Loading from './Loading'
 import axios from 'axios'
 import { useNavigate } from "react-router-dom"
 
-const Home = () => {
+const Home = ({ setResult}) => {
     const [fullName, setFullName] = useState("")
     const [currentPosition, setCurrentPosition] = useState("")
     const [currentLength, setCurrentLength] = useState(1)
@@ -26,16 +26,17 @@ const Home = () => {
         formData.append("currentLength", currentLength)
         formData.append("currentTechnologies", currentTechnologies)
         formData.append("workHistory", JSON.stringify(companyInfo))
-        // axios
-            axios.post("http://localhost:4000/resume/create", formData, {})
+        axios
+            .post("http://localhost:4000/resume/create", formData, {})
             .then((res) => {
-                if(res.data.message){
-                    console.log(res.data.data)
-                    navigate("/resume")
+                if (res.data.message) {
+                    //👇🏻 updates the result object
+                    setResult(res.data.data);
+                    navigate("/resume");
                 }
             })
-            .catch((err) => console.log(err))
-        setLoading(true)
+            .catch((err) => console.error(err));
+        setLoading(true);
     }
 
     const handleAddCompany = (e) => {
