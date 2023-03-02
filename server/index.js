@@ -41,6 +41,8 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration)
 
+const database = []
+
 
 // code snippet above uses the text-davinci-003 model to generate an appropriate answer to the prompt. The other key values helps us generate the specific type of response we need.
 const GPTFunction = async (text) => {
@@ -104,8 +106,16 @@ app.post("resume/create", upload.single("headshotImage"), async (req, res) => {
     const keypoints = await GPTFunction(prompt2)
     const jobResponsibilites = await GPTFunction(prompt3)
 
-    
+    const chatgbtData = { objective, keypoints, jobResponsibilites}
 
+
+    const data = {...newEntry, ...chatgbtData }
+    database.push(data)
+
+    res.json({
+        message: "Request successful!",
+        data,
+    });
 
 })
 
