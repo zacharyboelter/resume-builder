@@ -87,6 +87,12 @@ app.post("resume/create", upload.single("headshotImage"), async (req, res) => {
         }
         return stringText
     }
+
+    // job description prompt
+    const prompt1 = `I am writing a resume, my details are \n name: ${fullName} \n role: ${currentPosition} (${currentLength} years). \n I write in the technolegies: ${currentTechnologies}. Can you write a 100 words description for the top of the resume(first person writing)?`
+
+
+
 })
 
 
