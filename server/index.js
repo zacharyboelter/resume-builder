@@ -98,6 +98,15 @@ app.post("resume/create", upload.single("headshotImage"), async (req, res) => {
     const prompt3 = `I am writing a resume, my details are \n name: ${fullName} \n role: ${currentPosition} (${currentLength} years). \n During my years I worked at ${
         workArray.length} companies. ${remainderText()} \n Can you write me 50 words for each company seperated in numbers of my succession in the company (in first person)?`
 
+    
+    //GPT response
+    const objective = await GPTFunction(prompt1)
+    const keypoints = await GPTFunction(prompt2)
+    const jobResponsibilites = await GPTFunction(prompt3)
+
+    
+
+
 })
 
 
