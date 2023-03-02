@@ -1,20 +1,18 @@
+const { Configuration, OpenAIApi } = require("openai");
+const express = require("express");
+const multer = require("multer");
+const path = require("path");
+const cors = require("cors");
+const fs = require("fs");
+const app = express();
+const PORT = 4000;
 
-const { Configuration, OpenAIApi} = require('openai')
-const express = require('express')
-const cors = require('cors')
-const app = express()
-const PORT = 4000
-const multer = require('multer')
-const path = require('path')
 
-
-
-app.use(express.urlencoded({ extended: true}))
-app.use(express.json())
-app.use(cors())
-
+app.use(express.urlencoded({ extended: true }));
 // function enables Node.js to serve the contents of an uploads folder. The contents refer to static files such as images, CSS, and JavaScript files.
-app.use("/uploads", express.static("uploads"))
+app.use("/uploads", express.static("uploads"));
+app.use(express.json());
+app.use(cors());
 
 
 // stores the images in the upload folder and renames the image to its upload time (to prevent filename conflicts)

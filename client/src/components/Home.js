@@ -26,8 +26,8 @@ const Home = () => {
         formData.append("currentLength", currentLength)
         formData.append("currentTechnologies", currentTechnologies)
         formData.append("workHistory", JSON.stringify(companyInfo))
-        axios
-            .post("http://localhost:4000/resume/create", formData, {})
+        // axios
+            axios.post("http://localhost:4000/resume/create", formData, {})
             .then((res) => {
                 if(res.data.message){
                     console.log(res.data.data)
