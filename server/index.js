@@ -91,7 +91,10 @@ app.post("resume/create", upload.single("headshotImage"), async (req, res) => {
     // job description prompt
     const prompt1 = `I am writing a resume, my details are \n name: ${fullName} \n role: ${currentPosition} (${currentLength} years). \n I write in the technolegies: ${currentTechnologies}. Can you write a 100 words description for the top of the resume(first person writing)?`
 
+    //job responsibilites prompt
+    const prompt2 = `I am writing a resume, my details are \n name: ${fullName} \n role: ${currentPosition} (${currentLength} years). \n I write in the technolegies: ${currentTechnologies}. Can you write 10 points for a resume on what I am good at?`
 
+    //
 
 })
 
