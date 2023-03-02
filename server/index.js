@@ -67,7 +67,17 @@ app.post("resume/create", upload.single("headshotImage"), async (req, res) => {
         workHistory, //JSON format
     } = req.body
 
-    
+    const workArray = JSON.parse(workHistory) //an
+
+    const newEntry = {
+        id: generateId(),
+        fullName,
+        image_url: `http://localhost:4000/uploads/${req.file.filename}`,
+        currentPosition,
+        currentLength,
+        currentTechnologies,
+        workHistory: workArray,
+    }
 })
 
 
