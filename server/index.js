@@ -6,6 +6,8 @@ const cors = require("cors");
 const fs = require("fs");
 const app = express();
 const PORT = 4000;
+const helmet = require('helmet');
+
 
 
 app.use(express.urlencoded({ extended: true }));
@@ -14,6 +16,23 @@ app.use("/uploads", express.static("uploads"));
 app.use(express.json());
 app.use(cors());
 
+// the two following middlewares are to be deleted if not necessary down the road
+app.use(helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["*"],
+        styleSrc: ["'self'", "'unsafe-inline'"],
+        fontSrc: ["'self'", "data:"],
+        scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "stackexchange.com"]
+      }
+    }
+  }));
+app.use((req, res, next) => {
+    res.setHeader("Content-Security-Policy", "default-src 'self'; img-src 'self' data:; font-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'");
+    next();
+  });
+
+  
 
 // stores the images in the upload folder and renames the image to its upload time (to prevent filename conflicts)
 const storage = multer.diskStorage({
@@ -106,6 +125,7 @@ app.post("resume/create", upload.single("headshotImage"), async (req, res) => {
 
     const chatgbtData = { objective, keypoints, jobResponsibilites}
 
+    // console.log(chatgptData)
 
     const data = {...newEntry, ...chatgbtData }
     database.push(data)
